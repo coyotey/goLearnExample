@@ -8,6 +8,10 @@ func main() {
 	messages := make(chan string)
 	signals := make(chan bool)
 
+	go func() {
+		messages <- "dd"
+	}()
+
 	select {
 	case msg := <-messages:
 		fmt.Println("received message", msg)
